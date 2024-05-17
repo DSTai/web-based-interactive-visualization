@@ -19,6 +19,18 @@ var svg = d3.select("#geomap")
     .attr("width", width)
     .attr("height", height);
 
+// Tooltip for displaying province information
+var tooltip = d3.select("#geomap")
+.append("div")
+.attr("class", "tooltip")
+.style("position", "absolute")
+.style("visibility", "hidden")
+.style("background", "#fff")
+.style("border", "1px solid #ccc")
+.style("padding", "10px")
+.style("border-radius", "5px")
+.style("box-shadow", "0px 0px 10px rgba(0, 0, 0, 0.1)");
+
 // Load and process data
 d3.csv("https://raw.githubusercontent.com/TungTh/tungth.github.io/master/data/vn-provinces-data.csv").then(function(data) {
     // Define color scale
@@ -61,7 +73,49 @@ d3.csv("https://raw.githubusercontent.com/TungTh/tungth.github.io/master/data/vn
                 }
             })
             .attr("d", path)
-            .attr("stroke", "blue");
+            .attr("stroke", "blue")
+            .attr("stroke-width", "0.4px")
+            .attr("class", "province")
+            .on("mouseover", function(event, d) {
+                d3.select(this)
+                    .classed("highlighted", true) 
+                    .style("fill", "yellow");
+                tooltip.html(`<strong>${d.properties.Ten}</strong><br>Population: ${d.properties.population}`)
+                    .style("visibility", "visible")
+                    .style("top", (event.pageY - 10) + "px")
+                    .style("left", (event.pageX + 10) + "px");
+            })
+            .on("mousemove", function(event) {
+                tooltip.style("top", (event.pageY - 10) + "px")
+                       .style("left", (event.pageX + 10) + "px");
+            })
+            .on("mouseout", function() {
+                d3.select(this)
+                    .classed("highlighted", false) 
+                    .style("fill", function(d) {
+                        var value = d.properties.population;
+                        if (value) {
+                            return color(value);
+                        } else {
+                            return "#ccc";
+                        }
+                    });
+                tooltip.style("visibility", "hidden");
+            });
+            // Add province names
+            svg.selectAll("text")
+                .data(json.features)
+                .enter()
+                .append("text")
+                .attr("transform", function(d) {
+                    return "translate(" + path.centroid(d) + ")";
+                })
+                .attr("dy", ".35em")
+                .attr("class", "province-label")
+                .text(function(d) { return d.properties.Ten.replace("Tỉnh ", ""); })
+                .style("font-size", "10px")
+                .style("fill", "black")
+                .style("pointer-events", "none");
 
         // Load cities data and render them above the provinces
         d3.csv("https://dstai.github.io/data/vn-cities.csv").then(function(citiesData) {
@@ -76,19 +130,27 @@ d3.csv("https://raw.githubusercontent.com/TungTh/tungth.github.io/master/data/vn
                 .append("circle")
                 .attr("cx", function(d) { return projection([parseFloat(d.lng), parseFloat(d.lat)])[0]; })
                 .attr("cy", function(d) { return projection([parseFloat(d.lng), parseFloat(d.lat)])[1]; })
-                .attr("r", 1.5)
-                .style("fill", "red");
-
-            // Add city names
-            svg.selectAll("text")
-                .data(filteredCities)
-                .enter()
-                .append("text")
-                .attr("x", function(d) { return projection([parseFloat(d.lng), parseFloat(d.lat)])[0] + 5; })
-                .attr("y", function(d) { return projection([parseFloat(d.lng), parseFloat(d.lat)])[1] + 5; })
-                .text(function(d) { return d.name; })
-                .style("font-size", "8px")
-                .style("fill", "black");
+                .attr("r", 1)
+                .style("fill", "red")
+                .on("mouseover", function(event, d) {
+                    tooltip.html(`<strong>Thành phố ${d.name}</strong>`)
+                        .style("visibility", "visible")
+                        .style("top", (event.pageY - 10) + "px")
+                        .style("left", (event.pageX + 10) + "px");
+                })
+                .on("mousemove", function(event) {
+                    tooltip.style("top", (event.pageY - 10) + "px")
+                           .style("left", (event.pageX + 10) + "px");
+                })
+                .on("mouseout", function() {
+                    tooltip.style("visibility", "hidden");
+                })
+                .on("click", function(event, d) {
+                    tooltip.html(`<strong>Thành phố ${d.name}</strong>`)
+                        .style("visibility", "visible")
+                        .style("top", (event.pageY - 10) + "px")
+                        .style("left", (event.pageX + 10) + "px");
+                });
         });
 
     });
@@ -98,26 +160,29 @@ d3.csv("https://raw.githubusercontent.com/TungTh/tungth.github.io/master/data/vn
 const zoomFunction = d3.zoom()
     .scaleExtent([1, 8])
     .on("zoom", function(event) {
-        svg.selectAll("path")
-            .attr("transform", event.transform);   // Update city dots
-        const fontSize = 8 * event.transform.k;
-        const dotSize = 1.5 * event.transform.k;
+        // Update provinces paths
+        svg.selectAll(".province")
+            .attr("transform", event.transform);
+        // Update province names font size
+        svg.selectAll("text.province-label")
+            .style("font-size", 10 / event.transform.k + "px")
+            .attr("transform", function(d) {
+                // Calculate the translation based on the current zoom and pan transformations
+                const [x, y] = path.centroid(d);
+                const tx = event.transform.applyX(x);
+                const ty = event.transform.applyY(y);
+                return "translate(" + tx + "," + ty + ") scale(" + event.transform.k + ")";
+            });
+
+        // Update city dots
+        const dotSize = 1 * event.transform.k;
         svg.selectAll("circle")
             .attr("cx", function(d) { return event.transform.applyX(projection([parseFloat(d.lng), parseFloat(d.lat)])[0]); })
             .attr("cy", function(d) { return event.transform.applyY(projection([parseFloat(d.lng), parseFloat(d.lat)])[1]); })
             .attr("r", dotSize);
-    
-            // Update city names
-        svg.selectAll("text")
-            .attr("x", function(d) { return event.transform.applyX(projection([parseFloat(d.lng), parseFloat(d.lat)])[0]) + 5; })
-            .attr("y", function(d) { return event.transform.applyY(projection([parseFloat(d.lng), parseFloat(d.lat)])[1]) + 5; })
-            .text(function(d) { return d.name; })
-            .style("font-size",fontSize+"px")
-            .style("fill", "black");
     });
 
 svg.call(zoomFunction);
-
 
 // Function to adjust initial zoom and centering
 function zoomToBoundingBox(bbox) {
