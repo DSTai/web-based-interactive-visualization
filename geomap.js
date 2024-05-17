@@ -64,6 +64,7 @@ d3.csv("https://raw.githubusercontent.com/TungTh/tungth.github.io/master/data/vn
             .data(json.features)
             .enter()
             .append("path")
+            .attr("class", "province")
             .style("fill", function(d) {
                 var value = d.properties.population;
                 if (value) {
@@ -75,7 +76,7 @@ d3.csv("https://raw.githubusercontent.com/TungTh/tungth.github.io/master/data/vn
             .attr("d", path)
             .attr("stroke", "blue")
             .attr("stroke-width", "0.4px")
-            .attr("class", "province")
+            .on("click", provinceClicked)
             .on("mouseover", function(event, d) {
                 d3.select(this)
                     .classed("highlighted", true) 
@@ -156,9 +157,55 @@ d3.csv("https://raw.githubusercontent.com/TungTh/tungth.github.io/master/data/vn
     });
 });
 
+// Function to adjust initial zoom and centering
+function zoomToBoundingBox(bbox) {
+    const [[x0, y0], [x1, y1]] = bbox;
+    const bounds = [[x0, y0], [x1, y1]];
+
+    // Compute the center of the bounding box
+    const center = [
+        (bounds[0][0] + bounds[1][0]) / 2,
+        (bounds[0][1] + bounds[1][1]) / 2
+    ];
+
+    // Compute the zoom level based on the bounding box width
+    const dx = bounds[1][0] - bounds[0][0];
+    const dy = bounds[1][1] - bounds[0][1];
+    const zoom = Math.min(12, 0.9 / Math.max(dx / width, dy / height));
+
+    // Return the center and zoom level, but don't apply the zoom and pan to the map
+    return { center, zoom };
+}
+
+// Function to handle province click
+function provinceClicked(event, d) {
+    event.stopPropagation();
+    const [[x0, y0], [x1, y1]] = path.bounds(d);
+    svg.transition().duration(750).call(
+        zoomFunction.transform,
+        d3.zoomIdentity
+            .translate(width / 2, height / 2)
+            .scale(Math.min(9, 0.9 / Math.max((x1 - x0) / width, (y1 - y0) / height)))
+            .translate(-(x0 + x1) / 2, -(y0 + y1) / 2),
+        d3.pointer(event, svg.node())
+    );
+}
+function handleOutsideClick(event) {
+    // Check if the click target is not a province path
+    if (!event.target.classList.contains("province")) {
+        svg.transition().duration(750).call(
+            zoomFunction.transform,
+            d3.zoomIdentity
+        );
+    }
+}
+
+// Bind the body click event to the handleOutsideClick function
+d3.select("body").on("click", handleOutsideClick);
+
 // Zooming behaviour
 const zoomFunction = d3.zoom()
-    .scaleExtent([1, 8])
+    .scaleExtent([1, 9])
     .on("zoom", function(event) {
         // Update provinces paths
         svg.selectAll(".province")
@@ -184,22 +231,3 @@ const zoomFunction = d3.zoom()
 
 svg.call(zoomFunction);
 
-// Function to adjust initial zoom and centering
-function zoomToBoundingBox(bbox) {
-    const [[x0, y0], [x1, y1]] = bbox;
-    const bounds = [[x0, y0], [x1, y1]];
-
-    // Compute the center of the bounding box
-    const center = [
-        (bounds[0][0] + bounds[1][0]) / 2,
-        (bounds[0][1] + bounds[1][1]) / 2
-    ];
-
-    // Compute the zoom level based on the bounding box width
-    const dx = bounds[1][0] - bounds[0][0];
-    const dy = bounds[1][1] - bounds[0][1];
-    const zoom = Math.min(12, 0.9 / Math.max(dx / width, dy / height));
-
-    // Return the center and zoom level, but don't apply the zoom and pan to the map
-    return { center, zoom };
-}
