@@ -31,42 +31,91 @@ var tooltip = d3.select("#geomap")
 .style("border-radius", "5px")
 .style("box-shadow", "0px 0px 10px rgba(0, 0, 0, 0.1)");
 
-// Load and process data
-d3.csv("https://raw.githubusercontent.com/TungTh/tungth.github.io/master/data/vn-provinces-data.csv").then(function(data) {
-    // Define color scale
-    var colorScheme = d3.schemeBlues[6];
-    colorScheme.unshift("#eee");
-    var color = d3.scaleThreshold()
-        .range(colorScheme);
+// Define color scales for different datasets
+var colorSchemes = {
+    population: d3.schemeBlues[6],
+    health: d3.schemeGreens[6],
+    grdp: d3.schemeReds[6]
+};
+for (var key in colorSchemes) {
+    colorSchemes[key].unshift("#eee");
+}
 
-    color.domain([
-        d3.min(data, function(d) { return d.population; }), 
-        d3.max(data, function(d) { return d.population; })
-    ]);
+var colorScales = {
+    population: d3.scaleThreshold().range(colorSchemes.population),
+    health: d3.scaleThreshold().range(colorSchemes.health),
+    grdp: d3.scaleThreshold().range(colorSchemes.grdp)
+};
 
-    // Load GeoJSON data
-    d3.json("https://dstai.github.io/data/vn-provinces.json").then(function(json) {
-        // Merge the population data with GeoJSON
-        for (var i = 0; i < data.length; i++) {
-            var dataCountry = data[i].ma;
-            var dataPop = parseFloat(data[i].population);
-            for (var j = 0; j < json.features.length; j++) {
-                var jsonCountry = json.features[j].properties.Ma;
-                if (parseFloat(dataCountry) == parseFloat(jsonCountry)) {
-                    json.features[j].properties.population = dataPop;
-                    break;
-                }
-            }       
+
+
+// Function to load data and update the map
+function loadData() {
+    // Get the selected dataset and year
+    var selectedDataset = document.getElementById("dataset-select").value;
+    var selectedYear = document.getElementById("year").value;
+
+    // Update the dataset URL based on the selected year
+    var datasetURL = "https://dstai.github.io/data/" + selectedDataset + "/" + selectedDataset + "_" + selectedYear + ".csv";
+    // Load data from the updated dataset URL
+    d3.csv(datasetURL).then(function(data) {
+        var color = colorScales[selectedDataset];
+
+        // Set the domain of the color scale
+        var values = data.map(function(d) { 
+            if (selectedDataset == "health") {
+                return +d["Total"]; 
+            } 
+            else if(selectedDataset == "grdp"){
+                return +d["grdp"];
+            }
+            else {
+                return +d[selectedDataset]; 
+            }
+        });
+        if(selectedDataset == "grdp"){
+            var min = d3.min(values);
+            var max = d3.max(values);
+            var thresholds = d3.range(min, max, (max - min) / (color.range().length));
+            color.domain(thresholds);
+        } else {
+            var min = d3.min(values);
+            var max = d3.max(values);
+            var thresholds = d3.range(min, max, (max - min) / (color.range().length + 100));
+            color.domain(thresholds);
         }
 
+
+        d3.json("https://dstai.github.io/data/vn-provinces.json").then(function(json) {
+            // Merge the data with GeoJSON
+            data.forEach(function(d) {
+                var dataProvince = d.code;
+                var value;
+                if (selectedDataset == "health") {
+                    value = +d["Total"];
+                }
+                else if(selectedDataset == "grdp"){
+                    value = +d["grdp"];
+                } else {              
+                    value = +d[selectedDataset];
+                }
+                json.features.forEach(function(j) {
+                    if (parseFloat(j.properties.Ma) == parseFloat(dataProvince)) {
+                        j.properties.value = value;  
+                    }
+                });
+            });
+
         // Bind data and create paths for provinces
-        svg.selectAll("path")
-            .data(json.features)
-            .enter()
+        var paths = svg.selectAll("path").data(json.features);
+            
+        paths.enter()
             .append("path")
             .attr("class", "province")
+            .attr("d", path)
+            .merge(paths)
             .style("fill", function(d) {
-                var value = d.properties.population;
+                var value = d.properties.value;
                 if (value) {
                     return color(value);
                 } else {
@@ -81,7 +130,7 @@ d3.csv("https://raw.githubusercontent.com/TungTh/tungth.github.io/master/data/vn
                 d3.select(this)
                     .classed("highlighted", true) 
                     .style("fill", "yellow");
-                tooltip.html(`<strong>${d.properties.Ten}</strong><br>Population: ${d.properties.population}`)
+                tooltip.html(`<strong>${d.properties.Ten}</strong><br>${selectedDataset.charAt(0).toUpperCase() + selectedDataset.slice(1)}: ${d.properties.value}`)
                     .style("visibility", "visible")
                     .style("top", (event.pageY - 10) + "px")
                     .style("left", (event.pageX + 10) + "px");
@@ -94,9 +143,9 @@ d3.csv("https://raw.githubusercontent.com/TungTh/tungth.github.io/master/data/vn
                 d3.select(this)
                     .classed("highlighted", false) 
                     .style("fill", function(d) {
-                        var value = d.properties.population;
+                        var value = d.properties.value;
                         if (value) {
-                            return color(value);
+                            return color(value);    
                         } else {
                             return "#ccc";
                         }
@@ -115,7 +164,7 @@ d3.csv("https://raw.githubusercontent.com/TungTh/tungth.github.io/master/data/vn
                 .attr("class", "province-label")
                 .text(function(d) { return d.properties.Ten.replace("Tỉnh ", ""); })
                 .style("font-size", "10px")
-                .style("fill", "black")
+                .style("fill", "grey")
                 .style("pointer-events", "none");
 
         // Load cities data and render them above the provinces
@@ -155,6 +204,20 @@ d3.csv("https://raw.githubusercontent.com/TungTh/tungth.github.io/master/data/vn
         });
 
     });
+});
+}
+
+loadData();
+
+// Handle dataset selection change
+d3.select("#dataset-select").on("change", function() {
+    var selectedDataset = d3.select(this).property("value");
+    loadData(selectedDataset);
+});
+// Handle year selection change
+d3.select("#year").on("change", function() {
+    // Call the loadData function to update the map with the new year's data
+    loadData();
 });
 
 // Function to adjust initial zoom and centering
