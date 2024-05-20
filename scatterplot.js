@@ -60,8 +60,8 @@ function loadData() {
             });
         });
     }).catch(function(error) {
-        console.error('Error loading data:', error);
-        return []; // Return an empty array if there's an error
+        console.error();
+        return []; 
     });
 }
 
