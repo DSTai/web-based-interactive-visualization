@@ -47,7 +47,47 @@ var colorScales = {
     grdp: d3.scaleThreshold().range(colorSchemes.grdp)
 };
 
+// Function to create legend
+function createLegend(color, thresholds) {
+    const legendWidth = 300;
+    const legendHeight = 20;
+    const legendMargin = { top: 50, right: 20, bottom: 20, left: 20 };
 
+    const legend = svg.append("g")
+        .attr("class", "legend")
+        .attr("transform", `translate(${legendMargin.left},${legendMargin.top})`);
+
+    const legendScale = d3.scaleLinear()
+        .domain([thresholds[0], thresholds[thresholds.length - 1]])
+        .range([0, legendWidth]);
+
+    const legendAxis = d3.axisBottom(legendScale)
+        .tickValues(thresholds)
+        .tickFormat(d3.format(".2s"));
+
+    legend.selectAll("rect")
+        .data(thresholds)
+        .enter()
+        .append("rect")
+        .attr("x", (d, i) => legendScale(d))
+        .attr("y", 0)
+        .attr("width", (d, i) => legendScale(thresholds[i + 1] || thresholds[thresholds.length - 1]) - legendScale(d))
+        .attr("height", legendHeight)
+        .attr("fill", (d, i) => color(d));
+
+    legend.append("g")
+        .attr("transform", `translate(0,${legendHeight})`)
+        .call(legendAxis);
+
+    legend.append("text")
+        .attr("class", "legend-title")
+        .attr("x", legendWidth / 2)
+        .attr("y", legendMargin.top )
+        .attr("text-anchor", "middle")
+        .style("font-size", "12px")
+        .style("fill", "black")
+        .text("Density");
+}
 
 // Function to load data and update the map
 function loadData() {
@@ -76,10 +116,8 @@ function loadData() {
         var min = d3.min(values);
         var max = d3.max(values);
         var thresholds = d3.range(min, max, (max - min) / (color.range().length));
-        color.domain(thresholds);
-  
-
-
+        color.domain(thresholds);  
+        
         d3.json("https://dstai.github.io/data/vn-provinces.json").then(function(json) {
             // Merge the data with GeoJSON
             data.forEach(function(d) {
@@ -118,7 +156,7 @@ function loadData() {
             })
             .attr("d", path)
             .attr("stroke", "black")
-            .attr("stroke-width", "0.4px")
+            .attr("stroke-width", "0.2px")
             .on("click", provinceClicked)
             .on("mouseover", function(event, d) {
                 d3.select(this)
@@ -196,6 +234,9 @@ function loadData() {
                         .style("left", (event.pageX + 10) + "px");
                 });
         });
+        // Create legend for the selected dataset
+        svg.selectAll(".legend").remove();
+        createLegend(color, thresholds);
 
     });
 })
@@ -291,4 +332,3 @@ const zoomFunction = d3.zoom()
     });
 
 svg.call(zoomFunction);
-
