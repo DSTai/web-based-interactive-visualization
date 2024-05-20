@@ -123,7 +123,7 @@ function loadData() {
                 }
             })
             .attr("d", path)
-            .attr("stroke", "blue")
+            .attr("stroke", "black")
             .attr("stroke-width", "0.4px")
             .on("click", provinceClicked)
             .on("mouseover", function(event, d) {
@@ -204,6 +204,10 @@ function loadData() {
         });
 
     });
+})
+.catch(error => {
+    // Handle any other errors that occur during data loading
+    console.error();
 });
 }
 
