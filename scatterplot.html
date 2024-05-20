@@ -42,36 +42,28 @@
 </div>
 
 <!-- Page content -->
-<div id="scatterplot" class="w3-content" style="max-width:1500px;margin-top:80px">
-    <div class="w3-content">
-        <label for="dataset-select">Select Dataset:</label>
-        <select id="dataset-select">
+<div id="selection" class="w3-content" style="max-width:1400px;margin-top:50px">
+    <div id="menu" class="w3-large" style="display: flex">
+        <div id="year-select">
+        <label for="dataset-select"><b>Dataset:</b></label>
+        <select id="dataset-select" class="w3-select w3-border">
             <option value="health">Health</option>
             <option value="grdp">GRDP</option>
-        </select>
-  </div>
-    <div id="year-select" class="w3-content" style="max-width:1500px">
-      <label for="year"><b>Select Year:</b></label>
-      <select id="year">
+        </select> 
+    </div>   
+    <div id="year-select" class="w3-large">
+      <label for="year"><b>Year:</b></label>
+      <select id="year" class="w3-select w3-border">
           <option value="2011">2011</option>
-          <option value="2012">2012</option>
-          <option value="2013">2013</option>
-          <option value="2014">2014</option>
-          <option value="2015">2015</option>
-          <option value="2016">2016</option>
-          <option value="2017">2017</option>
-          <option value="2018">2018</option>
-          <option value="2019">2019</option>
-          <option value="2020">2020</option>
-          <option value="2021">2021</option>
-          <option value="2022">2022</option>
       </select>
-      <div id="scatter-plot-container" style="display: flex;">
-        <svg id="scatter-plot"></svg>
-        <svg id="tooltip"></svg>
     </div>
 </div>
 </div>
+    <div id="scatter-plot-container" style="max-width:1400px;display: flex;">
+        <svg id="scatter-plot"></svg>
+        <svg id="tooltip"></svg>
+    </div>
+
 
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
@@ -94,6 +86,49 @@
             x.className = x.className.replace(" w3-show", "");
         }
     }
+    // Function to update the year select dropdown based on the selected dataset
+async function updateYearSelect() {
+    const selectedDataset = document.getElementById("dataset-select").value;
+    const datasetURLPrefix = "https://dstai.github.io/data/" + selectedDataset + "/" + selectedDataset + "_";
+    const datasetURLSuffix = ".csv";
+    const years = [];
+
+    // Fetch data for the selected dataset
+    const fetchPromises = [];
+    for (let year = 2005; year <= 2022; year++) {
+        const datasetURL = datasetURLPrefix + year + datasetURLSuffix;
+        const fetchPromise = fetch(datasetURL)
+            .then(response => {
+                // If response is OK, add the year to the available years array
+                if (response.ok) {
+                    years.push(year);
+                }
+            })
+            .catch(error => {
+                console.error('Error loading data:', error);
+            });
+        fetchPromises.push(fetchPromise);
+    }
+
+    // Wait for all fetch requests to complete
+    await Promise.all(fetchPromises);
+
+    // Populate the year select dropdown with the available years
+    const yearSelect = document.getElementById("year");
+    yearSelect.innerHTML = "";
+    years.forEach(year => {
+        const option = document.createElement("option");
+        option.value = year;
+        option.textContent = year;
+        yearSelect.appendChild(option);
+    });
+}
+
+// Initial loading of year select options
+updateYearSelect();
+
+// Add event listener to the dataset select element to update year select options
+document.getElementById("dataset-select").addEventListener("change", updateYearSelect);
 </script>
 
 <!-- D3.js library -->
