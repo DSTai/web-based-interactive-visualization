@@ -73,17 +73,11 @@ function loadData() {
                 return +d[selectedDataset]; 
             }
         });
-        if(selectedDataset == "grdp"){
-            var min = d3.min(values);
-            var max = d3.max(values);
-            var thresholds = d3.range(min, max, (max - min) / (color.range().length));
-            color.domain(thresholds);
-        } else {
-            var min = d3.min(values);
-            var max = d3.max(values);
-            var thresholds = d3.range(min, max, (max - min) / (color.range().length + 100));
-            color.domain(thresholds);
-        }
+        var min = d3.min(values);
+        var max = d3.max(values);
+        var thresholds = d3.range(min, max, (max - min) / (color.range().length));
+        color.domain(thresholds);
+  
 
 
         d3.json("https://dstai.github.io/data/vn-provinces.json").then(function(json) {
