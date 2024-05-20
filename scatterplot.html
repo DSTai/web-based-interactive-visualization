@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Scatter Plot</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {font-family: Arial, sans-serif;}
+        .mySlides {display: none;}
+        #scatter-plot {width: 100%; height: 500px;}
+        .selector {margin: 10px;}
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-black w3-card">
+        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu">
+            <i class="fa fa-bars"></i>
+        </a>
+        <a href="index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+        <a href="index.html#about" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
+        <div class="w3-dropdown-hover w3-hide-small">
+            <button class="w3-padding-large w3-button" title="Visualization">VISUALIZATION <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a href="Atlas.html" class="w3-bar-item w3-button">Atlas</a>
+                <a href="#" class="w3-bar-item w3-button">Scatter Plot</a>
+            </div>
+        </div>
+        <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+    </div>
+</div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <a href="index.html#about" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ABOUT US</a>
+    <a href="Atlas.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ATLAS</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SCATTER PLOT</a>
+</div>
+
+<!-- Page content -->
+<div id="scatterplot" class="w3-content" style="max-width:1500px;margin-top:80px">
+    <div class="w3-content">
+        <label for="dataset-select">Select Dataset:</label>
+        <select id="dataset-select">
+            <option value="health">Health</option>
+            <option value="grdp">GRDP</option>
+        </select>
+  </div>
+    <div id="year-select" class="w3-content" style="max-width:1500px">
+      <label for="year"><b>Select Year:</b></label>
+      <select id="year">
+          <option value="2011">2011</option>
+          <option value="2012">2012</option>
+          <option value="2013">2013</option>
+          <option value="2014">2014</option>
+          <option value="2015">2015</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+      </select>
+      <div id="scatter-plot-container" style="display: flex;">
+        <svg id="scatter-plot"></svg>
+        <svg id="tooltip"></svg>
+    </div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+<script>
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else { 
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+</script>
+
+<!-- D3.js library -->
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<!-- Scatter Plot JavaScript -->
+<script src="scatterplot.js"></script>
+
+</body>
+</html>
