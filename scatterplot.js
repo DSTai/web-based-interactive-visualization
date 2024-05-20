@@ -78,7 +78,7 @@ function drawScatterPlot(data) {
     // Set up the SVG container dimensions for the scatter plot
     const margin = { top: 20, right: 20, bottom: 30, left: 40 };
     const scatterWidth = 800 - margin.left - margin.right;
-    const scatterHeight = 400 - margin.top - margin.bottom;
+    const scatterHeight = 500 - margin.top - margin.bottom;
 
     // Create the SVG container for the scatter plot
     const svg = d3.select("#scatter-plot")

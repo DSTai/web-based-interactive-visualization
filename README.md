@@ -15,3 +15,5 @@ Are there disparities in healthcare access across localities based on GRDP level
 Our primary goal revolves around creating website features that effectively showcase data to the audience, 
 and ensure data-driven insights from various angles, ensuring an objective analysis. 
 
+### Run
+`python -m http.server 3000`

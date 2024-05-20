@@ -1,14 +1,14 @@
 // Define map dimensions
-var width = 1500;
-var height = 1000;
+var width = 1400;
+var height = 800;
 
 // Define map projection
 var projection = d3.geoAlbers()
     .center([100, 4.4])
     .rotate([2, 32])
     .parallels([11, 20])
-    .translate([width / 40, height / 1.3])
-    .scale(3000);
+    .translate([width / 40, height / 1.2])
+    .scale(2500);
 
 var path = d3.geoPath()
     .projection(projection);
