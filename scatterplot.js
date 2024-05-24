@@ -113,7 +113,7 @@ function drawScatterPlot(data) {
     d3.select('#scatter-plot').selectAll('*').remove();
 
     // Set up the SVG container dimensions for the scatter plot
-    const margin = { top: 20, right: 20, bottom: 50, left: 50 };
+    const margin = { top: 50, right: 20, bottom: 50, left: 50 };
     const scatterWidth = 900 - margin.left - margin.right;
     const scatterHeight = 600 - margin.top - margin.bottom;
 
@@ -137,6 +137,14 @@ function drawScatterPlot(data) {
         .domain([d3.min(data, d => d.y), d3.max(data, d => d.y)])
         .range([scatterHeight, 0]);
 
+    // Add title for the scatter plot
+    svg.append("text")
+        .attr("x", scatterWidth / 2)
+        .attr("y", -20)
+        .attr("text-anchor", "middle")
+        .style("font-size", "20px")
+        .style("font-weight", "bold")
+        .text(getTitle(document.getElementById("dataset-select").value));
     // Add x-axis label
     svg.append("g")
         .attr("transform", "translate(0," + scatterHeight + ")")
@@ -146,7 +154,8 @@ function drawScatterPlot(data) {
         .attr("y",  margin.bottom -30)
         .attr("dy", "0.71em")
         .attr("fill", "blue")
-        .text("Density")
+        .style("font-weight", "bold")
+        .text(getXAxisLabel(document.getElementById("dataset-select").value))
         .attr("font-size", "14px");
 
     // Add y-axis label
@@ -155,10 +164,11 @@ function drawScatterPlot(data) {
         .append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", -margin.left)
-        .attr("x", 30 -scatterHeight / 2)
+        .attr("x", 50-scatterHeight / 2)
         .attr("dy", "0.71em")
         .attr("fill", "Blue")
-        .text("Population")
+        .style("font-weight", "bold")
+        .text("Population (Thousands)")
         .attr("font-size", "14px");
 
     // Add circles to represent data points
@@ -224,44 +234,111 @@ function handleMouseOver(event, d) {
         .attr("height", 200)
         .attr("x", 100)
         .attr("y", 10);
+
+    // Helper function to handle null or invalid values
+    const getValue = (value) => (value === "..") ? 0 : +value;
+
     // Dynamically create tooltip content based on the selected dataset
     if (selectedDataset === "health") {
+        const hospital = getValue(d.hospital);
+        const localClinic = getValue(d.local_clinic);
+        const rehabilitation = getValue(d.rehabilitation);
+        const healthStation = getValue(d.health_station);
+
         tooltipSvg.append("text")
             .attr("x", 160)
             .attr("y", 230)
             .style("fill", "black")
             .text(`${d.name}`);
 
+        const barHeight = 30;
+        const barSpacing = 20;
+        const barStartX = 200; 
+        const barStartY = 250;
+        const maxBarWidth = 200; // Define the maximum bar width
+        const maxBarValue = Math.max(hospital, localClinic, rehabilitation, healthStation); // Get the maximum value to scale the bars
+
         tooltipSvg.append("text")
             .attr("x", 10)
-            .attr("y", 250)
+            .attr("y", barStartY)
             .style("fill", "black")
             .text(`Total: ${d.x}`);
+        
+        tooltipSvg.append("rect")
+            .attr("x", barStartX)
+            .attr("y", barStartY - barHeight +40)
+            .attr("width", (hospital / maxBarValue) * maxBarWidth)
+            .attr("height", barHeight)
+            .attr("fill", "dodgerblue");
 
         tooltipSvg.append("text")
             .attr("x", 10)
-            .attr("y", 270)
+            .attr("y", barStartY + barSpacing)
             .style("fill", "black")
-            .text(`Number of Hospital: ${d.hospital}`);
+            .text(`Number of Hospital: ${hospital}`);
+        
+
+        
+        tooltipSvg.append("rect")
+            .attr("x", barStartX)
+            .attr("y", barStartY + barSpacing - barHeight +60)
+            .attr("width", (localClinic / maxBarValue) * maxBarWidth)
+            .attr("height", barHeight)
+            .attr("fill", "dodgerblue");
 
         tooltipSvg.append("text")
             .attr("x", 10)
-            .attr("y", 290)
+            .attr("y", barStartY + 3 * barSpacing)
             .style("fill", "black")
-            .text(`Local Clinic: ${d.local_clinic}`);
+            .text(`Local Clinic: ${localClinic}`);
+        
+
+        
+        tooltipSvg.append("rect")
+            .attr("x", barStartX)
+            .attr("y", barStartY + 3 * barSpacing - barHeight +60)
+            .attr("width", (rehabilitation / maxBarValue) * maxBarWidth)
+            .attr("height", barHeight)
+            .attr("fill", "dodgerblue");
 
         tooltipSvg.append("text")
             .attr("x", 10)
-            .attr("y", 310)
+            .attr("y", barStartY + 5 * barSpacing)
             .style("fill", "black")
-            .text(`Rehabilitation and Nursing Hospital: ${d.rehabilitation}`);
+            .text(`Rehabilitation and  `);
+        tooltipSvg.append("text")
+            .attr("x", 10)
+            .attr("y", barStartY + 6 * barSpacing)
+            .style("fill", "black")
+            .text(`Nursing Hospital: ${rehabilitation}`);        
+
+        
+        tooltipSvg.append("rect")
+            .attr("x", barStartX)
+            .attr("y", barStartY + 7 * barSpacing - barHeight +20)
+            .attr("width", (healthStation / maxBarValue) * maxBarWidth)
+            .attr("height", barHeight)
+            .attr("fill", "dodgerblue");
 
         tooltipSvg.append("text")
             .attr("x", 10)
-            .attr("y", 330)
+            .attr("y", barStartY + 7 * barSpacing)
             .style("fill", "black")
-            .text(`Health station at commune, ward, office, enterprise: ${d.health_station}`);
+            .text(`Health station at commune,`);
+        tooltipSvg.append("text")
+            .attr("x", 10)
+            .attr("y", barStartY + 8 * barSpacing)
+            .style("fill", "black")
+            .text(`ward, office, enterprise: ${healthStation}`);   
+
     } else if (selectedDataset === "grdp") {
+        const barHeight = 30;
+        const barSpacing = 20;
+        const barStartX = 150;
+        const barStartY = 250;
+        const maxBarWidth = 200;
+        const maxBarValue = 360; 
+
         tooltipSvg.append("text")
             .attr("x", 160)
             .attr("y", 230)
@@ -270,9 +347,35 @@ function handleMouseOver(event, d) {
 
         tooltipSvg.append("text")
             .attr("x", 10)
-            .attr("y", 250)
+            .attr("y", barStartY + barSpacing +10)
             .style("fill", "black")
             .text(`GRDP: ${d.x}`);
+
+        // Add a horizontal bar for GRDP
+        tooltipSvg.append("rect")
+            .attr("x", barStartX)
+            .attr("y", barStartY - barHeight +40)
+            .attr("width", (d.x / maxBarValue) * maxBarWidth)
+            .attr("height", barHeight)
+            .attr("fill", "dodgerblue");
+    }
+}
+
+// Function to get the x-axis label based on the selected dataset
+function getXAxisLabel(selectedDataset) {
+    if (selectedDataset === "health") {
+        return "Healthcare (unit)";
+    } else if (selectedDataset === "grdp") {
+        return "GRDP (Million VND/person/year)";
+    } else {
+        return "Density"; // Default label
+    }
+}
+function getTitle(selectedDataset) {
+    if (selectedDataset === "health") {
+        return "Scatter Plot: Healthcare vs Population";
+    } else if (selectedDataset === "grdp") {
+        return "Scatter Plot: GRDP vs Population";
     }
 }
 
@@ -281,7 +384,7 @@ function handleMouseOut(d) {
     d3.select(this)
         .style("fill",d => d.color)
         .attr("r", 6)
-        .style("stroke", "none"); // Remove the stroke; // Reset the radius of the circle
+        .style("stroke", "none"); // Remove the stroke
 
     // Clear tooltip content
     d3.select("#tooltip").selectAll("*").remove();

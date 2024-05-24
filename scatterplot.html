@@ -9,7 +9,7 @@
     <style>
         body {font-family: Arial, sans-serif;}
         .mySlides {display: none;}
-        #scatter-plot {width: 100%; height: 600px;}
+        #scatter-plot {width: 100%; height: 100%;}
         .selector {margin: 10px;}
     </style>
 </head>
@@ -47,7 +47,7 @@
         <div id="year-select">
         <label for="dataset-select"><b>Dataset:</b></label>
         <select id="dataset-select" class="w3-select w3-border">
-            <option value="health">Health</option>
+            <option value="health">Healthcare</option>
             <option value="grdp">GRDP</option>
         </select> 
     </div>   
@@ -59,7 +59,7 @@
     </div>
 </div>
 </div>
-    <div id="scatter-plot-container" style="max-width:1400px; display: flex;">
+    <div id="scatter-plot-container" style="max-width:1400px; height: 700px; display: flex;">
         <svg id="scatter-plot"></svg>
         <svg id="tooltip"></svg>
     </div>
