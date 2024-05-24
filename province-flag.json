@@ -1,0 +1,379 @@
+[
+    {
+      "code": 17,
+      "name": "Hòa Bình",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/f/f6/Logo_t%E1%BB%89nh_Ho%C3%A0_B%C3%ACnh.svg/1024px-Logo_t%E1%BB%89nh_Ho%C3%A0_B%C3%ACnh.svg.png",
+      "license": "Public domain"
+    },
+    {
+      "code": 14,
+      "name": "Sơn La",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/b/bf/Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_S%C6%A1n_La.svg/1024px-Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_S%C6%A1n_La.svg.png",
+      "license": "Public domain"
+    },
+    {
+      "code": 11,
+      "name": "Điện Biên",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/6/6f/Logo_t%E1%BB%89nh_%C4%90i%E1%BB%87n_Bi%C3%AAn.svg/1024px-Logo_t%E1%BB%89nh_%C4%90i%E1%BB%87n_Bi%C3%AAn.svg.png",
+      "license": "Public domain"
+    },
+    {
+      "code": 12,
+      "name": "Lai Châu",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/0/0e/Logo_t%E1%BB%89nh_Lai_Ch%C3%A2u.png/1024px-Logo_t%E1%BB%89nh_Lai_Ch%C3%A2u.png",
+      "license": "Public domain"
+    },
+        {
+      "code": 10,
+      "name": "Lào Cai",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/3/3d/Logo_t%E1%BB%89nh_L%C3%A0o_Cai.svg/1024px-Logo_t%E1%BB%89nh_L%C3%A0o_Cai.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 15,
+      "name": "Yên Bái",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/6/6c/Logo_t%E1%BB%89nh_Y%C3%AAn_B%C3%A1i.svg/1024px-Logo_t%E1%BB%89nh_Y%C3%AAn_B%C3%A1i.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 25,
+      "name": "Phú Thọ",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/5/5f/Logo_t%E1%BB%89nh_Ph%C3%BA_Th%E1%BB%8D.svg/1024px-Logo_t%E1%BB%89nh_Ph%C3%BA_Th%E1%BB%8D.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 2,
+      "name": "Hà Giang",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/2/22/Logo_Du_l%E1%BB%8Bch_H%C3%A0_Giang.png/1024px-Logo_Du_l%E1%BB%8Bch_H%C3%A0_Giang.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 8,
+      "name": "Tuyên Quang",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/3/32/Logo_t%E1%BB%89nh_Tuy%C3%AAn_Quang.png/1024px-Logo_t%E1%BB%89nh_Tuy%C3%AAn_Quang.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 4,
+      "name": "Cao Bằng",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/1/17/Logo_t%E1%BB%89nh_Cao_B%E1%BA%B1ng.png/1024px-Logo_t%E1%BB%89nh_Cao_B%E1%BA%B1ng.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 6,
+      "name": "Bắc Kạn",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/6/64/Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_B%E1%BA%AFc_K%E1%BA%A1n.svg/1024px-Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_B%E1%BA%AFc_K%E1%BA%A1n.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code":19,
+      "name": "Thái Nguyên",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/7/7f/Logo_t%E1%BB%89nh_Th%C3%A1i_Nguy%C3%AAn.png/1024px-Logo_t%E1%BB%89nh_Th%C3%A1i_Nguy%C3%AAn.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 20,
+      "name": "Lạng Sơn",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/6/65/Logo_t%E1%BB%89nh_L%E1%BA%A1ng_S%C6%A1n.png/1024px-Logo_t%E1%BB%89nh_L%E1%BA%A1ng_S%C6%A1n.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 24,
+      "name": "Bắc Giang",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/d/d2/Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_B%E1%BA%AFc_Giang.svg/1024px-Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_B%E1%BA%AFc_Giang.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 22,
+      "name": "Quảng Ninh",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/c/c2/Logo_t%E1%BB%89nh_Qu%E1%BA%A3ng_Ninh_%28kh%C3%B4ng_ch%C3%ADnh_th%E1%BB%A9c%29.png/1024px-Logo_t%E1%BB%89nh_Qu%E1%BA%A3ng_Ninh_%28kh%C3%B4ng_ch%C3%ADnh_th%E1%BB%A9c%29.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 1,
+      "name": "Hà Nội",
+      "file_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Emblem_of_Hanoi.svg/1024px-Emblem_of_Hanoi.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 31,
+      "name": "Hải Phòng",
+      "file_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Emblem_of_Haiphong.png/1024px-Emblem_of_Haiphong.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 27,
+      "name": "Bắc Ninh",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/2/2b/Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_B%E1%BA%AFc_Ninh.svg/1024px-Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_B%E1%BA%AFc_Ninh.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 33,
+      "name": "Hưng Yên",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/7/72/Logo_H%C6%B0ng_Y%C3%AAn.svg/1024px-Logo_H%C6%B0ng_Y%C3%AAn.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 35,
+      "name": "Hà Nam",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/a/a5/Logo_t%E1%BB%89nh_H%C3%A0_Nam.svg/1024px-Logo_t%E1%BB%89nh_H%C3%A0_Nam.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 36,
+      "name": "Nam Định",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/f/ff/Logo_t%E1%BB%89nh_Nam_%C4%90%E1%BB%8Bnh.svg/1024px-Logo_t%E1%BB%89nh_Nam_%C4%90%E1%BB%8Bnh.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 34,
+      "name": "Thái Bình",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/7/72/Logo_th%C3%A0nh_ph%E1%BB%91_Th%C3%A1i_B%C3%ACnh.svg/1024px-Logo_th%C3%A0nh_ph%E1%BB%91_Th%C3%A1i_B%C3%ACnh.svg.png",
+      "license": "Public domain"
+    },    
+            {
+      "code": 30,
+      "name": "Hải Dương",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/7/77/Logo_t%E1%BB%89nh_H%E1%BA%A3i_D%C6%B0%C6%A1ng.svg/1024px-Logo_t%E1%BB%89nh_H%E1%BA%A3i_D%C6%B0%C6%A1ng.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 26,
+      "name": "Vĩnh Phúc",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/b/bd/Logo_t%E1%BB%89nh_V%C4%A9nh_Ph%C3%BAc.svg/1024px-Logo_t%E1%BB%89nh_V%C4%A9nh_Ph%C3%BAc.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 37,
+      "name": "Ninh Bình",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/c/cc/Logo_t%E1%BB%89nh_Ninh_B%C3%ACnh.svg/1024px-Logo_t%E1%BB%89nh_Ninh_B%C3%ACnh.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 38,
+      "name": "Thanh Hóa",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/6/6c/Logo_t%E1%BB%89nh_Thanh_H%C3%B3a.svg/1024px-Logo_t%E1%BB%89nh_Thanh_H%C3%B3a.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 40,
+      "name": "Nghệ An",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/8/8c/Logo_t%E1%BB%89nh_Ngh%E1%BB%87_An.png/1024px-Logo_t%E1%BB%89nh_Ngh%E1%BB%87_An.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 42,
+      "name": "Hà Tĩnh",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/9/96/Logo_t%E1%BB%89nh_H%C3%A0_T%C4%A9nh.svg/1024px-Logo_t%E1%BB%89nh_H%C3%A0_T%C4%A9nh.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 44,
+      "name": "Quảng Bình",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/d/d7/Logo_t%E1%BB%89nh_Qu%E1%BA%A3ng_B%C3%ACnh_%28kh%C3%B4ng_ch%C3%ADnh_th%E1%BB%A9c%29.png/1024px-Logo_t%E1%BB%89nh_Qu%E1%BA%A3ng_B%C3%ACnh_%28kh%C3%B4ng_ch%C3%ADnh_th%E1%BB%A9c%29.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 45,
+      "name": "Quảng Trị",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/a/af/Logo_t%E1%BB%89nh_Qu%E1%BA%A3ng_Tr%E1%BB%8B.svg/1024px-Logo_t%E1%BB%89nh_Qu%E1%BA%A3ng_Tr%E1%BB%8B.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 46,
+      "name": "Thừa Thiên Huế",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/2/2a/Logo_th%C3%A0nh_ph%E1%BB%91_Hu%E1%BA%BF.svg/1024px-Logo_th%C3%A0nh_ph%E1%BB%91_Hu%E1%BA%BF.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 48,
+      "name": "Đà Nẵng",
+      "file_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Emblem_of_Danang_City.svg/1024px-Emblem_of_Danang_City.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 49,
+      "name": "Quảng Nam",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/a/a0/Logo_Quang_Nam.svg/1024px-Logo_Quang_Nam.svg.png",
+      "license": "Public domain"
+    },
+    {
+        "code": 51,
+        "name": "Quảng Ngãi",
+        "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/8/8b/Logo_TP._Qu%C3%A3ng_Ng%C3%A3i.svg/1024px-Logo_TP._Qu%C3%A3ng_Ng%C3%A3i.svg.png",
+        "license": "Public domain"
+      },
+            {
+      "code": 52,
+      "name": "Bình Định",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/9/99/Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_B%C3%ACnh_%C4%90%E1%BB%8Bnh.svg/1024px-Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_B%C3%ACnh_%C4%90%E1%BB%8Bnh.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 54,
+      "name": "Phú Yên",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/6/65/Logo_t%E1%BB%89nh_Ph%C3%BA_Y%C3%AAn.svg/1024px-Logo_t%E1%BB%89nh_Ph%C3%BA_Y%C3%AAn.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 56,
+      "name": "Khánh Hòa",
+      "file_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Emblem_of_Khanhhoa_Province.svg/1024px-Emblem_of_Khanhhoa_Province.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 58,
+      "name": "Ninh Thuận",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/4/41/Logo_t%E1%BB%89nh_Ninh_Thu%E1%BA%ADn.svg/1024px-Logo_t%E1%BB%89nh_Ninh_Thu%E1%BA%ADn.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 60,
+      "name": "Bình Thuận",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/a/a0/Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_B%C3%ACnh_Thu%E1%BA%ADn.svg/1024px-Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_B%C3%ACnh_Thu%E1%BA%ADn.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 62,
+      "name": "Kon Tum",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/4/4a/Logo_t%E1%BB%89nh_Kon_Tum.svG/1024px-Logo_t%E1%BB%89nh_Kon_Tum.svG.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 64,
+      "name": "Gia Lai",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/a/a7/Logo_t%E1%BB%89nh_Gia_Lai.svg/1024px-Logo_t%E1%BB%89nh_Gia_Lai.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 66,
+      "name": "Đắk Lắk",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/2/2b/Logo_t%E1%BB%89nh_%C4%90%E1%BA%AFk_L%E1%BA%AFk.svg/1024px-Logo_t%E1%BB%89nh_%C4%90%E1%BA%AFk_L%E1%BA%AFk.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 67,
+      "name": "Đắk Nông",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/2/27/Logo_t%E1%BB%89nh_%C4%90%E1%BA%AFk_N%C3%B4ng.svg/1024px-Logo_t%E1%BB%89nh_%C4%90%E1%BA%AFk_N%C3%B4ng.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 68,
+      "name": "Lâm Đồng",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/3/32/Logo_t%E1%BB%89nh_L%C3%A2m_%C4%90%E1%BB%93ng_%28kh%C3%B4ng_ch%C3%ADnh_th%E1%BB%A9c%29.png/1024px-Logo_t%E1%BB%89nh_L%C3%A2m_%C4%90%E1%BB%93ng_%28kh%C3%B4ng_ch%C3%ADnh_th%E1%BB%A9c%29.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 79,
+      "name": "Thành phố Hồ Chí Minh",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/1/12/Bi%E1%BB%83u_tr%C6%B0ng_c%E1%BB%A7a_TP_HCM.svg/1024px-Bi%E1%BB%83u_tr%C6%B0ng_c%E1%BB%A7a_TP_HCM.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 77,
+      "name": "Bà Rịa – Vũng Tàu",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/6/65/Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_B%C3%A0_R%E1%BB%8Ba_%E2%80%93_V%C5%A9ng_T%C3%A0u.png/1024px-Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_B%C3%A0_R%E1%BB%8Ba_%E2%80%93_V%C5%A9ng_T%C3%A0u.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 74,
+      "name": "Bình Dương",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/c/ca/Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_B%C3%ACnh_D%C6%B0%C6%A1ng.svg/1024px-Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_B%C3%ACnh_D%C6%B0%C6%A1ng.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 70,
+      "name": "Bình Phước",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/f/f0/Logo_t%E1%BB%89nh_B%C3%ACnh_Ph%C6%B0%E1%BB%9Bc_2022.svg/1024px-Logo_t%E1%BB%89nh_B%C3%ACnh_Ph%C6%B0%E1%BB%9Bc_2022.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 75,
+      "name": "Đồng Nai",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/2/2c/Logo_Dong_Nai.png/1024px-Logo_Dong_Nai.png",
+      "license": "Public domain"
+    },        {
+      "code": 72,
+      "name": "Tây Ninh",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/3/35/Logo_t%E1%BB%89nh_T%C3%A2y_Ninh.svg/1024px-Logo_t%E1%BB%89nh_T%C3%A2y_Ninh.svg.png",
+      "license": "Public domain"
+    },        {
+      "code": 92,
+      "name": "Cần Thơ",
+      "file_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Emblem_of_Cantho_City.svg/1024px-Emblem_of_Cantho_City.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 89,
+      "name": "An Giang",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/d/da/Logo_t%E1%BB%89nh_An_Giang.png/1024px-Logo_t%E1%BB%89nh_An_Giang.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 95,
+      "name": "Bạc Liêu",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/7/79/Logo_t%E1%BB%89nh_B%E1%BA%A1c_Li%C3%AAu.svg/1024px-Logo_t%E1%BB%89nh_B%E1%BA%A1c_Li%C3%AAu.svg.png",
+      "license": "Public domain"
+    }
+    ,        {
+      "code": 83,
+      "name": "Bến Tre",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/0/0d/Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_B%E1%BA%BFn_Tre.svg/1024px-Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_B%E1%BA%BFn_Tre.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 80,
+      "name": "Long An",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/2/22/Emblem_of_Longan_Province.svg/1024px-Emblem_of_Longan_Province.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 96,
+      "name": "Cà Mau",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/9/96/Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_C%C3%A0_Mau.svg/1024px-Bi%E1%BB%83u_tr%C6%B0ng_t%E1%BB%89nh_C%C3%A0_Mau.svg.png",
+      "license": "Public domain"
+    }
+    ,        {
+      "code": 94,
+      "name": "Sóc Trăng",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/a/af/Logo_t%E1%BB%89nh_S%C3%B3c_Tr%C4%83ng.svg/1024px-Logo_t%E1%BB%89nh_S%C3%B3c_Tr%C4%83ng.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 93,
+      "name": "Hậu Giang",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/f/fc/Logo_t%E1%BB%89nh_H%E1%BA%ADu_Giang.svG/1024px-Logo_t%E1%BB%89nh_H%E1%BA%ADu_Giang.svG.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 84,
+      "name": "Trà Vinh",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/6/6c/Logo_t%E1%BB%89nh_Tr%C3%A0_Vinh.svg/1024px-Logo_t%E1%BB%89nh_Tr%C3%A0_Vinh.svg.png",
+      "license": "Public domain"
+    }
+    ,        {
+      "code": 87,
+      "name": "Đồng Tháp",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/7/71/Logo_t%E1%BB%89nh_%C4%90%E1%BB%93ng_Th%C3%A1p.svg/1024px-Logo_t%E1%BB%89nh_%C4%90%E1%BB%93ng_Th%C3%A1p.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 86,
+      "name": "Vĩnh Long",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/7/7d/Logo_t%E1%BB%89nh_V%C4%A9nh_Long.svg/1024px-Logo_t%E1%BB%89nh_V%C4%A9nh_Long.svg.png",
+      "license": "Public domain"
+    },
+            {
+      "code": 91,
+      "name": "Kiên Giang",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/c/c6/Logo_t%E1%BB%89nh_Ki%C3%AAn_Giang.png/1024px-Logo_t%E1%BB%89nh_Ki%C3%AAn_Giang.png",
+      "license": "Public domain"
+    },
+    {
+      "code": 82,
+      "name": "Tiền Giang",
+      "file_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/4/4e/Logo_t%E1%BB%89nh_Ti%E1%BB%81n_Giang.svg/1024px-Logo_t%E1%BB%89nh_Ti%E1%BB%81n_Giang.svg.png",
+      "license": "Public domain"
+}    
+
+]
