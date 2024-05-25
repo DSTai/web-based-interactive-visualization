@@ -15,33 +15,33 @@ Are there disparities in healthcare access across localities based on GRDP level
 Our primary goal revolves around creating website features that effectively showcase data to the audience, 
 and ensure data-driven insights from various angles, ensuring an objective analysis. 
 
-### Run
+## Run
 `python -m http.server 3000`
 
-### Features
+## Features
 
-## GeoMap
-# Update datasets and years
+### GeoMap
+#### Update datasets and years
 
 https://github.com/DSTai/web-based-interactive-visualization/assets/91078107/df3405f3-a2eb-4e2d-8fe2-4566805006de
 
-# Zooming and Panning
+#### Zooming and Panning
 
 https://github.com/DSTai/web-based-interactive-visualization/assets/91078107/ed2199ca-ffed-42aa-aba6-aa155703ab05
 
-# Highlight density
+#### Highlight density
 
 https://github.com/DSTai/web-based-interactive-visualization/assets/91078107/11af96e5-968e-4753-8fa2-a7e080519fa7
 
-# Highlight region
+#### Highlight region
 
 https://github.com/DSTai/web-based-interactive-visualization/assets/91078107/232063c8-933d-4f5e-8ec7-88a4942327a3
 
 
-## Scatterplot
-# Update datasets and years
-# Highlight province
-# Show province's information
+### Scatterplot
+#### Update datasets and years
+#### Highlight province
+#### Show province's information
 
 https://github.com/DSTai/web-based-interactive-visualization/assets/91078107/a5dd5757-2c49-433f-bfac-589166699df5
 
