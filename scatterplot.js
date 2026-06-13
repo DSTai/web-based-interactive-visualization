@@ -21,7 +21,7 @@ function loadData() {
     var selectedYear = document.getElementById("year").value;
     //let flagInfo = flagData.find(flag => flag.code === +d.code);
     //let flagURL = flagInfo ? flagInfo.file_url : "";
-    let flagURL = flagMap[+d.code];
+
     // Update the dataset URL based on the selected year
     var populationURL = "data/population/population_" + selectedYear + ".csv";
     var datasetURL = "data/" + selectedDataset + "/" + selectedDataset + "_" + selectedYear + ".csv";
@@ -107,7 +107,7 @@ function loadData() {
             }
         });
     }).catch(function(error) {
-        console.error();
+        console.error(error);
         return []; 
     });
 }
