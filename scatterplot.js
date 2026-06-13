@@ -19,7 +19,7 @@ function loadData() {
     // Get the selected dataset and year
     var selectedDataset = document.getElementById("dataset-select").value;
     var selectedYear = document.getElementById("year").value;
-    let flagInfo = flagData.find(flag => flag.code === +d.code);
+    //let flagInfo = flagData.find(flag => flag.code === +d.code);
     //let flagURL = flagInfo ? flagInfo.file_url : "";
     
     // Update the dataset URL based on the selected year
