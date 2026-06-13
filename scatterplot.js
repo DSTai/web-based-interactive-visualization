@@ -19,12 +19,14 @@ function loadData() {
     // Get the selected dataset and year
     var selectedDataset = document.getElementById("dataset-select").value;
     var selectedYear = document.getElementById("year").value;
-
+    let flagInfo = flagData.find(flag => flag.code === +d.code);
+    let flagURL = flagInfo ? flagInfo.file_url : "";
+    
     // Update the dataset URL based on the selected year
-    var populationURL = "https://dstai.github.io/data/population/population_" + selectedYear + ".csv";
-    var datasetURL = "https://dstai.github.io/data/" + selectedDataset + "/" + selectedDataset + "_" + selectedYear + ".csv";
-    var regionURL = "https://dstai.github.io/data/region.csv";
-    var flagURL = "https://dstai.github.io/data/province-flag.json";
+    var populationURL = "https://dstai.github.io/web-based-interactive-visualization/data/population/population_" + selectedYear + ".csv";
+    var datasetURL = "https://dstai.github.io/web-based-interactive-visualization/data/" + selectedDataset + "/" + selectedDataset + "_" + selectedYear + ".csv";
+    var regionURL = "https://dstai.github.io/web-based-interactive-visualization/data/region.csv";
+    var flagURL = "https://dstai.github.io/web-based-interactive-visualization/data/province-flag.json";
     // Load data from the dataset URL
 
     // Load data from the dataset URL
@@ -38,8 +40,17 @@ function loadData() {
         var datasetData = files[1];
         var regionData = files[2];
         var flagData = files[3];
+        const flagMap = {};
+        flagData.forEach(d => {
+            flagMap[+d.code] = d.file_url;
+        });
 
-        var populationMap = {};
+        // preload ảnh (giảm lag hover)
+        Object.values(flagMap).forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+                var populationMap = {};
         populationData.forEach(function(d) {
             populationMap[d.code] = +d.population;
         });
@@ -66,8 +77,7 @@ function loadData() {
             let color = regionColors[region];
 
             // Find flag URL based on province code
-            let flagInfo = flagData.find(flag => flag.code === +d.code);
-            let flagURL = flagInfo ? flagInfo.file_url : "";
+            let flagURL = flagMap[+d.code];
 
             // Determine x value based on the selected dataset
             if (selectedDataset === "health") {
@@ -219,7 +229,6 @@ function handleMouseOver(event, d) {
         .style("stroke", "black")
         .style("stroke-width", 1)
         .attr("r", 10); 
-
     // Clear the existing content in the tooltip SVG
     const tooltipSvg = d3.select("#tooltip")
         .attr("width", 600)
@@ -229,7 +238,7 @@ function handleMouseOver(event, d) {
     const selectedDataset = document.getElementById("dataset-select").value;
     // Append flag image to tooltip SVG
     tooltipSvg.append("image")
-        .attr("xlink:href", d.flagURL)
+        .attr("href", d.flagURL)
         .attr("width", 200)
         .attr("height", 200)
         .attr("x", 100)
