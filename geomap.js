@@ -129,7 +129,7 @@ function loadData() {
     var selectedYear = document.getElementById("year").value;
 
     // Update the dataset URL based on the selected year
-    var datasetURL = "https://dstai.github.io/web-based-interactive-visualization/data/" + selectedDataset + "/" + selectedDataset + "_" + selectedYear + ".csv";
+    var datasetURL = "data/" + selectedDataset + "/" + selectedDataset + "_" + selectedYear + ".csv";
     // Load data from the updated dataset URL
     d3.csv(datasetURL).then(function(data) {
         var color = colorScales[selectedDataset];
@@ -151,7 +151,7 @@ function loadData() {
         var thresholds = d3.range(min, max + (max - min) / (color.range().length), (max - min) / (color.range().length));
         color.domain(thresholds);  
         
-        d3.json("https://dstai.github.io/web-based-interactive-visualization/data/vn-provinces.json").then(function(json) {
+        d3.json("data/vn-provinces.json").then(function(json) {
             // Merge the data with GeoJSON
             data.forEach(function(d) {
                 var dataProvince = d.code;
@@ -233,7 +233,7 @@ function loadData() {
                 .style("pointer-events", "none");
 
         // Load cities data and render them above the provinces
-        d3.csv("https://dstai.github.io/web-based-interactive-visualization/data/vn-cities.csv").then(function(citiesData) {
+        d3.csv("data/vn-cities.csv").then(function(citiesData) {
             // Filter cities where alt_type is "city"
             var filteredCities = citiesData.filter(function(d) {
                 return d.alt_type === "City";
@@ -273,7 +273,7 @@ function loadData() {
 
  
 // Load region data and create legend
-d3.csv("https://dstai.github.io/web-based-interactive-visualization/data/region.csv").then(function(regionData) {
+d3.csv("data/region.csv").then(function(regionData) {
     // Extract region names from regionData
     var uniqueRegions = Array.from(new Set(regionData.map(region => region.region)));
 

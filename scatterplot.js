@@ -20,13 +20,13 @@ function loadData() {
     var selectedDataset = document.getElementById("dataset-select").value;
     var selectedYear = document.getElementById("year").value;
     let flagInfo = flagData.find(flag => flag.code === +d.code);
-    let flagURL = flagInfo ? flagInfo.file_url : "";
+    //let flagURL = flagInfo ? flagInfo.file_url : "";
     
     // Update the dataset URL based on the selected year
-    var populationURL = "https://dstai.github.io/web-based-interactive-visualization/data/population/population_" + selectedYear + ".csv";
-    var datasetURL = "https://dstai.github.io/web-based-interactive-visualization/data/" + selectedDataset + "/" + selectedDataset + "_" + selectedYear + ".csv";
-    var regionURL = "https://dstai.github.io/web-based-interactive-visualization/data/region.csv";
-    var flagURL = "https://dstai.github.io/web-based-interactive-visualization/data/province-flag.json";
+    var populationURL = "data/population/population_" + selectedYear + ".csv";
+    var datasetURL = "data/" + selectedDataset + "/" + selectedDataset + "_" + selectedYear + ".csv";
+    var regionURL = "data/region.csv";
+    var flagURL = "data/province-flag.json";
     // Load data from the dataset URL
 
     // Load data from the dataset URL
